@@ -29,7 +29,7 @@ public class RetryScript : MonoBehaviour
 
     public void OnRetryDown(){
         gameObject.SetActive(false);
-        SoundManager.instance.PlaySound("ButtonSFX");
+        // SoundManager.instance.PlaySound("ButtonSFX");
 
         onRetry?.Invoke();
     }

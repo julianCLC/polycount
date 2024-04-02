@@ -55,7 +55,7 @@ public class LevelHandler : MonoBehaviour
         // onNextLevel += NextLevelSequence;
 
         GameManager.onEnterGame += StartSequence;
-        RetryScript.onRetry += StartGame;
+        RetryScript.onRetry += StartSequence;
 
         Choice.onChoiceMade += SubmitAnswer;
 
@@ -66,13 +66,15 @@ public class LevelHandler : MonoBehaviour
         ExitScreen.onReturnGame += OnReturnGame;
         ExitScreen.onConfirmExit += OnConfirmExit;
         RetryScript.onConfirmExit += OnConfirmExit;
+
+        
     }
 
     void OnDisable(){
         // onNextLevel -= NextLevelSequence;
 
         GameManager.onEnterGame -= StartSequence;
-        RetryScript.onRetry -= StartGame;
+        RetryScript.onRetry -= StartSequence;
         
         Choice.onChoiceMade -= SubmitAnswer;
 
@@ -101,9 +103,10 @@ public class LevelHandler : MonoBehaviour
     void StartSequence(){
         //
         GameUIObject.SetActive(true);
-
+        onLevelStart?.Invoke();
+        onPauseEnter?.Invoke();
         countdownAnimator.SetFloat("countdownSpeed", countdownTimeModifier);
-        countdownAnimator.Play("CountdownAnim");
+        countdownAnimator.Play("CountdownAnim", -1, 0f);
         StartCoroutine(countDown(countdownTime));
     }
 
@@ -115,8 +118,8 @@ public class LevelHandler : MonoBehaviour
         numShapes = 5;
         level = 1;
         LevelSetup(numShapes, numChoices, correctAnswer, 0.4f, true, level);
-
-        onLevelStart?.Invoke();
+        onPauseExit?.Invoke();
+        // onLevelStart?.Invoke();
     }
 
     void NextLevelSequence(){
