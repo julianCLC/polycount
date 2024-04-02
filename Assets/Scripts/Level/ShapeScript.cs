@@ -33,6 +33,7 @@ public class ShapeScript : MonoBehaviour
         // transform.position = pos;
         // transform.localScale = Vector3.one;
         transform.localScale = new Vector2(1.5f, 1.5f);
+        spriteRenderer.enabled = true;
         spriteRenderer.sprite = ResourceLoader.GetSprite(shape);
         // spriteRenderer.color = ResourceLoader.GetHexColour(ResourceLoader.GetDefaultColour(shape));
 
