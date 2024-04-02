@@ -21,7 +21,6 @@ public class MainMenu : MonoBehaviour
 
     void OnPlayButtonDown(){
         onPlayGame?.Invoke();
-        // SoundManager.instance.PlaySound("ButtonSFX");
     }
 
     void OnOptionsButtonDown(){

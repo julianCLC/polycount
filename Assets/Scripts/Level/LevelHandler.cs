@@ -94,12 +94,6 @@ public class LevelHandler : MonoBehaviour
         UpdateAnimClipTimes();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void StartSequence(){
         //
         GameUIObject.SetActive(true);
@@ -111,7 +105,6 @@ public class LevelHandler : MonoBehaviour
     }
 
     void StartGame(){
-        Debug.Log("StartGame");
         // initialize level data
         CleanUpLevel();
 
@@ -119,7 +112,6 @@ public class LevelHandler : MonoBehaviour
         level = 1;
         LevelSetup(numShapes, numChoices, correctAnswer, 0.4f, true, level);
         onPauseExit?.Invoke();
-        // onLevelStart?.Invoke();
     }
 
     void NextLevelSequence(){
@@ -293,7 +285,6 @@ public class LevelHandler : MonoBehaviour
         foreach(AnimationClip clip in clips){
             if(clip.name == "CountdownAnim"){
                 countdownTimeModifier = clip.length / countdownTime;
-                // countdownAnimator.SetFloat("countdownSpeed", countdownTimeModifier);
             }
         }
     }

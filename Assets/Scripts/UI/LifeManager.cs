@@ -35,6 +35,5 @@ public class LifeManager : MonoBehaviour
         if(hearts <= 0){
             onZeroHearts?.Invoke();
         }
-        // return hearts;
     }
 }

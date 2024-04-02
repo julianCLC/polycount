@@ -30,24 +30,13 @@ public class ShapeScript : MonoBehaviour
     public void InitializeShape(Shapes _shape){
         // set shape and set random position;
         shape = _shape;
-        // transform.position = pos;
-        // transform.localScale = Vector3.one;
         transform.localScale = new Vector2(1.5f, 1.5f);
         spriteRenderer.enabled = true;
         spriteRenderer.sprite = ResourceLoader.GetSprite(shape);
-        // spriteRenderer.color = ResourceLoader.GetHexColour(ResourceLoader.GetDefaultColour(shape));
 
         // Move random direction
         rb.AddForce(UnityEngine.Random.insideUnitCircle * 2f, ForceMode2D.Impulse);
-
-        
-
-        
     }
-
-    // public void SetColour(string hexCode ){
-    //     spriteRenderer.color = ResourceLoader.GetHexColour(hexCode);
-    // }
 
     public void AugmentSize(){
         float newScale = UnityEngine.Random.Range(0.5f, 2f);
@@ -56,7 +45,6 @@ public class ShapeScript : MonoBehaviour
 
     public void DestroyShape(){
         // in case sprite renderer is still turned off
-        // spriteRenderer.enabled = true;
         _killAction(this);
     }
 
@@ -69,7 +57,6 @@ public class ShapeScript : MonoBehaviour
     }
 
     public void OnPauseExit(){
-        Debug.Log("EXIT PAUSE");
         spriteRenderer.enabled = true;
 
     }

@@ -14,16 +14,9 @@ public class OptionsMenu : MonoBehaviour
 
     [SerializeField] Button backButton;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        // masterSlider.onValueChanged.AddListener(SetMasterVolume);
-        // musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        // soundFXSlider.onValueChanged.AddListener(SetSoundFXVolume);
-
-        // masterSlider.OnSelect(OnBackButtonDown);
-
         masterSlider.onValueChanged.AddListener((value) => {
             audioMixer.SetFloat("masterVol", value);
         });

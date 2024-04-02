@@ -7,12 +7,8 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject GameUI;
-    // [SerializeField] GameObject MainMenuUI;
-    // [SerializeField] GameObject retryScreen;
-    // [SerializeField] GameObject tutorialScreen;
-    public LevelHandler levelHandler;
 
+    public LevelHandler levelHandler;
 
     public static event Action onEnterGame;
     public static event Action onEnterMainMenu;
@@ -29,8 +25,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // tutorialScreen.SetActive(true);
-        // StartGame();
+
     }
 
     void OnEnable(){
@@ -44,18 +39,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartGame(){
-        //GameUI.SetActive(true);
-        // MainMenuUI.SetActive(false);
-
         onEnterGame?.Invoke();
     }
 
     void OnLevelExit(){
         // leave game mode
         // go back to menu
-        //GameUI.SetActive(false);
-        
-
         onEnterMainMenu?.Invoke();
     }
 

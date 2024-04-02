@@ -18,7 +18,8 @@ public class LevelUtilities : MonoBehaviour
     public static bool NumDivider(int totalNum, int totalChoices, float primaryPercent, bool equalSplit, out int[] result){
         /// Splits amount(totalNum) into different amount buckets(totalChoices)
         /// bucket on index 0 gets the most amount, specified by primaryPercent
-        /// rest of the buckets gets distributed evenly : MODIFY THIS EVENTUALLY FOR MORE CONTROL
+        /// rest of the buckets gets distributed evenly
+        /// TODO: Modify this eventually for more control
 
         // primaryPercent = what % the mode shape has to be
         // mostShapesIndex = which shape to increase the percent of (index of answer)
@@ -46,11 +47,6 @@ public class LevelUtilities : MonoBehaviour
         result[0] = numPrimaryShape;
         result[1] = numSecondaryShape;
         result[2] = numTertiaryShape;
-        /*
-        for(int i = 1; i < totalChoices; i++){
-            result[i] = numSecondaryShape;
-        }
-        */
 
         // Distribute remainder to all the divisions
         int j = 0;
@@ -63,16 +59,12 @@ public class LevelUtilities : MonoBehaviour
                 j = (j + 1) % 3;
                 remainder--;
             }
-            
-
-            
         }
 
         return true;
 
     }
     public void ApplyAugments(Transform shape){
-
         if(sizeChangeAugment){
             AugmentSize(shape);
         }
@@ -110,8 +102,6 @@ public class LevelUtilities : MonoBehaviour
             shape.localScale = new Vector3(newScale, newScale, 1);
         }
     }
-
-
 
     void AugmentAddMovement(Transform shape){
         shape.GetComponent<Rigidbody2D>().AddForce(UnityEngine.Random.insideUnitCircle * forceToApply, ForceMode2D.Impulse);

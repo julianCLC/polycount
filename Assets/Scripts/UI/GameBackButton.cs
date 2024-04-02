@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameBackButton : MonoBehaviour
 {
-
     [SerializeField] Button backButton;
     public static event Action onBackButton;
 
